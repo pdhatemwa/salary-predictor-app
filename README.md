@@ -10,7 +10,7 @@ This is a semester project for our Machine Learning and Cloud Computing course.
 5. Gitau Francis - 
 
 ## 🌐 Live Demo
-[Click here to view the app](https://your-app-link.streamlit.app)
+[Click here to view the app](http://localhost:8501/)
 
 ## 🧠 Project Description
 This application uses a machine learning model to predict a person’s salary based on various inputs such as education, age, and job class. The app is built using **Streamlit**, allowing for easy deployment in the cloud.
