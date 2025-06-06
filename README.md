@@ -35,15 +35,15 @@ cd salary-predictor-app
 
 ### How to run it on your own machine
 
-1. Install the requirements
 
+   ```
+1. Install the requirements
    ```
    $ pip install -r requirements.txt
-   ```
 
-2. Run the app
 
    ```
-   $ streamlit run streamlit_app.py
+  2. Run the app
    ```
+ $ streamlit run streamlit_app.py
 
