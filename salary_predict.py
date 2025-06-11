@@ -14,7 +14,10 @@ gender = st.number_input("Your age", 0, 100, 30, 1)
 marital_status = st.radio("Marital status", ["Single", "Married"])
 education = st.selectbox("Education Level", ["High School", "Bachelor", "Master", "PhD"])
 years_of_experience = st.slider("Years of experience", 0, 40)
-job_title = st.selectbox("Job Title", ["Software Engineer", "Data Analyst", "Manager", "Teacher"])
+st.write("Use the slider to indicate how many years of experience you have.")
+job_title = st.selectbox("Job Title", ["Software Engineer", "Data Analyst", "Manager", "Teacher", 
+                                   "Senior Scientist", "Financial Analyst", "Accountant",
+                                   "CEO", "Business Analyst"])
 
 # salary_data = r"C:\Users\patri\Downloads\salaryData.csv"
 salary_df = pd.read_csv(os.path.join(os.path.dirname(__file__), "salaryData.csv"))
