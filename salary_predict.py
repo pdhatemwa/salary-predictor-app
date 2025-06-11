@@ -3,7 +3,8 @@ import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
-
+from matplotlib import pyplot as plt
+import seaborn as sns
 st.title("Wage prediction app")
 st.write("ML app")
 
@@ -69,4 +70,5 @@ mae = mean_absolute_error(Y_valid, predictions)
 # print(f"Percentage MAE : {percentage_mae}") # %mean error = 9.1946
 if st.button("Predict Salary"):
      predicted_salary = model.predict(user_encoded)[0]
-     st.success(f"Estimated Salary of {first_name} : ${predicted_salary:,.2f} per year.")
+     st.success(f"Estimated Salary of {first_name} : ${predicted_salary:,.2f}")
+
