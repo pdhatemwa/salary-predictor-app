@@ -70,4 +70,5 @@ mae = mean_absolute_error(Y_valid, predictions)
 # print(f"Percentage MAE : {percentage_mae}") # %mean error = 9.1946
 if st.button("Predict Salary"):
      predicted_salary = model.predict(user_encoded)[0]
-     st.success(f"Estimated Salary: ${predicted_salary:,.2f}")
+     st.success(f"Estimated Salary of {first_name} : ${predicted_salary:,.2f}")
+
