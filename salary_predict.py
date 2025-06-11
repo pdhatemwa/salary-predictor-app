@@ -5,15 +5,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 from matplotlib import pyplot as plt
 import seaborn as sns
-st.title("🎈 Wage prediction app")
-st.write(
-     "Let's start building!"
-)
+st.title("Wage prediction app")
+st.write("ML app")
 
 first_name = st.text_input("First name")
 last_name = st.text_input("Last name")
 gender = st.number_input("Your age", 0, 100, 30, 1)
-dob = st.date_input("Your birthday")
 marital_status = st.radio("Marital status", ["Single", "Married"])
 education = st.selectbox("Education Level", ["High School", "Bachelor", "Master", "PhD"])
 years_of_experience = st.slider("Years of experience", 0, 40)
@@ -25,49 +22,6 @@ salary_df = pd.read_csv(salary_data) # Conversion of the csv file into a data fr
 # print(salary_df.isnull().sum()) # Explanatory data analysis to determine how many empty columns cells are.
 # print(salary_df.describe)
 
-# Feature engineering.
-correlation = salary_df[['Age', 'Years of Experience', 'Salary']].corr()
-
-# Plot heatmap
-plt.figure(figsize = (8, 6))
-sns.heatmap(correlation, annot = True, cmap = 'coolwarm', fmt = ".2f", square = True)
-plt.title('Correlation Matrix: Age, Experience, and Salary')
-plt.tight_layout()
-plt.show()
-
-"""
-     The heatmap reveals the following insights about the relationships between Age, Years of Experience, and Salary:
-
-Years of Experience vs. Salary (Correlation ≈ 0.97):
-
-This is a very strong positive correlation.
-
-As experience increases, salary tends to increase significantly.
-
-This suggests that experience is the strongest predictor of salary among the variables analyzed.
-
-Age vs. Salary (Correlation ≈ 0.94):
-
-Also a strong positive correlation.
-
-Older individuals generally earn more, which is likely because they tend to have more experience.
-
-However, the strength is slightly lower than with experience, meaning experience plays a more direct role.
-
-Age vs. Experience (Correlation ≈ 0.99):
-
-Nearly a perfect linear relationship.
-
-As expected, age and experience rise together — older employees typically have more years of experience.
-
-Summary:
-Years of Experience is the most directly correlated with Salary.
-
-Age matters, but mostly as a proxy for experience.
-
-These results indicate that, in the dataset, accumulated work experience is the key driver of higher earnings, not just age or education alone.
-
-     """
 # Setting up X and Y values for model prediction.
 Y = salary_df['Salary']
 feature_names = ['Age', 'Gender', 'Education Level', 'Job Title', 'Years of Experience']
@@ -117,5 +71,3 @@ mae = mean_absolute_error(Y_valid, predictions)
 if st.button("Predict Salary"):
      predicted_salary = model.predict(user_encoded)[0]
      st.success(f"Estimated Salary: ${predicted_salary:,.2f}")
-
-
