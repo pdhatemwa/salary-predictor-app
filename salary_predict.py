@@ -16,8 +16,8 @@ education = st.selectbox("Education Level", ["High School", "Bachelor", "Master"
 years_of_experience = st.slider("Years of experience", 0, 40)
 job_title = st.selectbox("Job Title", ["Software Engineer", "Data Analyst", "Manager", "Teacher"])
 
-salary_data = r"C:\Users\patri\Downloads\salaryData.csv"
-salary_df = pd.read_csv(salary_data) # Conversion of the csv file into a data frame using pandas.
+# salary_data = r"C:\Users\patri\Downloads\salaryData.csv"
+salary_df = pd.read_csv("salaryData.csv") # Conversion of the csv file into a data frame using pandas.
 # print(salary_df.head(15)) # Some data inspection of the first 15 rows of the data. 
 # print(salary_df.isnull().sum()) # Explanatory data analysis to determine how many empty columns cells are.
 # print(salary_df.describe)
@@ -70,5 +70,5 @@ mae = mean_absolute_error(Y_valid, predictions)
 # print(f"Percentage MAE : {percentage_mae}") # %mean error = 9.1946
 if st.button("Predict Salary"):
      predicted_salary = model.predict(user_encoded)[0]
-     st.success(f"Estimated Salary of {first_name} : ${predicted_salary:,.2f}")
+     st.success(f"Estimated Salary of {first_name} : ${predicted_salary:,.2f} per year.")
 
