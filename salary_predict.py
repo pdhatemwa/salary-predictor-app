@@ -4,35 +4,41 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 import os
-import streamlit as st
+import datetime
 from datetime import date
 
-'''
 
-os is a built-in Python module that helps you interact with the Operating System — 
-like dealing with files, directories, paths, etc.
+#os is a built-in Python module that helps you interact with the Operating System — 
+#like dealing with files, directories, paths, etc.
+#We use os here to make our file path dynamic and portable.
 
-We use os here to make our file path dynamic and portable.
-'''
 
-st.title("Wage prediction app")
-st.write("ML app")
+st.title("Wage prediction app") # App title
 
 first_name = st.text_input("First name") # Ask user to input first name. "text_input" for text.
 last_name = st.text_input("Last name") # Ask user to input first name. "text_input" for text.
 
 today = date.today() # Setting today's date to accurately calculate the age.
-dob = st.date_input("Select your date of birth")
+dob = st.date_input(
+     "Select your date of birth",
+     value = datetime.date(1970, 1, 1),  # default year value to cater to older users if any.
+     min_value = datetime.date(1900, 1, 1),
+     max_value = datetime.date.today()
+)
 if dob > today: # To calculate the user's age based on date of birth.
      st.error("Date of birth cannot be in the future!") # Error handling for notorious users.
 else:
      age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
      st.success(f"Your age is: {age} years")
 
-marital_status = st.radio("Marital status", ["Single", "Married"])
-education = st.selectbox("Education Level", ["High School", "Bachelor", "Master", "PhD"])
-st.write("Use the slider to indicate how many years of experience you have.")
-years_of_experience = st.slider("Years of experience", 0, 40)
+marital_status = st.radio("Marital status", ["Single", "Married"]) # To show marital status even though it isn't a strong wage predictor.
+
+education = st.selectbox("Education Level", ["High School", "Bachelor", "Master", "PhD"]) # User to select education level.
+
+st.write("Use the slider to indicate how many years of experience you have.") # Some user instructions.
+
+years_of_experience = st.slider("Years of experience", 0, 40) # since the average career lasts up to 40 years.
+
 job_title = st.selectbox("Job Title", ["Software Engineer", "Data Analyst", "Manager", "Teacher", 
                                    "Senior Scientist", "Financial Analyst", "Accountant",
                                    "CEO", "Business Analyst"])
