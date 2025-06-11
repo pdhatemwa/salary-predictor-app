@@ -29,7 +29,7 @@ if dob > today: # To calculate the user's age based on date of birth.
      st.error("Date of birth cannot be in the future!") # Error handling for notorious users.
 else:
      age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
-     st.success(f"Your age is: {age} years")
+     st.success(f" Age :  {age} years.")
 
 marital_status = st.radio("Marital status", ["Single", "Married"]) # To show marital status even though it isn't a strong wage predictor.
 
