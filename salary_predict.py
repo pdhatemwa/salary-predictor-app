@@ -3,8 +3,8 @@ import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
-from matplotlib import pyplot as plt
-import seaborn as sns
+import os
+
 st.title("Wage prediction app")
 st.write("ML app")
 
@@ -17,7 +17,8 @@ years_of_experience = st.slider("Years of experience", 0, 40)
 job_title = st.selectbox("Job Title", ["Software Engineer", "Data Analyst", "Manager", "Teacher"])
 
 # salary_data = r"C:\Users\patri\Downloads\salaryData.csv"
-salary_df = pd.read_csv("/workspaces/salary-predictor-app/salaryData.csv") # Conversion of the csv file into a data frame using pandas.
+salary_df = pd.read_csv(os.path.join(os.path.dirname(__file__), "salaryData.csv"))
+# Conversion of the csv file into a data frame using pandas.
 # print(salary_df.head(15)) # Some data inspection of the first 15 rows of the data. 
 # print(salary_df.isnull().sum()) # Explanatory data analysis to determine how many empty columns cells are.
 # print(salary_df.describe)
