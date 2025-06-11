@@ -16,8 +16,8 @@ education = st.selectbox("Education Level", ["High School", "Bachelor", "Master"
 years_of_experience = st.slider("Years of experience", 0, 40)
 job_title = st.selectbox("Job Title", ["Software Engineer", "Data Analyst", "Manager", "Teacher"])
 
-# salary_data = r"C:\Users\patri\Downloads\salaryData.csv"
-salary_df = pd.read_csv("salaryData.csv") # Conversion of the csv file into a data frame using pandas.
+salary_data = r"C:\Users\patri\Downloads\salaryData.csv"
+salary_df = pd.read_csv(salary_data) # Conversion of the csv file into a data frame using pandas.
 # print(salary_df.head(15)) # Some data inspection of the first 15 rows of the data. 
 # print(salary_df.isnull().sum()) # Explanatory data analysis to determine how many empty columns cells are.
 # print(salary_df.describe)
