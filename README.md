@@ -4,10 +4,10 @@ This is a semester project for our Machine Learning and Cloud Computing course.
 
 ## Group members
 1. Patrick Dhatemwa - 191894
-2. Ayden  - 
-3. Cynthia Kiilu - 
-4. Ian Paul Mulindwa - 
-5. Gitau Francis - 
+2. Ayden Demanou - 192973
+3. Cynthia Kiilu - 190362
+4. Ian Paul Mulindwa - 192869
+5. Gitau Francis - 189104
 
 ## 🌐 Live Demo
 [Click here to view the app](http://localhost:8501/)
